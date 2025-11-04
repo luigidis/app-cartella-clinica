@@ -11,7 +11,7 @@ async function main() {
     let pazienti;
 
     if (searchQuery) {
-      // Search patients by nome, cognome, or codiceFiscale
+      // Search patients by name, surname, or fiscalCode
       // Note: SQLite's LIKE operator is case-insensitive by default for ASCII characters
       pazienti = await prisma.paziente.findMany({
         where: {
