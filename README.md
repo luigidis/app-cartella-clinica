@@ -167,8 +167,8 @@ app-cartella-clinica/
 ├── src/                          # Frontend React
 │   ├── components/
 │   │   └── patient/
-│   │       ├── get-patient.tsx   # Componente ricerca pazienti
-│   │       └── get-patient.css   # Stili isolati
+│   │       ├── get-patients.tsx   # Componente ricerca pazienti
+│   │       └── get-patients.css   # Stili isolati
 │   ├── generated/
 │   │   └── prisma/               # Prisma client generato
 │   ├── App.tsx                   # Componente principale

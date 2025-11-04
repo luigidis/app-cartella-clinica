@@ -511,7 +511,7 @@ const salva = async () => {
 
 ### `GetPatient`
 
-**File**: `src/components/patient/get-patient.tsx`
+**File**: `src/components/patient/get-patients.tsx`
 
 **Descrizione**:
 Componente per cercare e visualizzare pazienti. Include form di ricerca e tabella risultati.
@@ -705,7 +705,7 @@ export type Paziente = {
                      │
                      ▼
 ┌──────────────────────────────────────────────────────────┐
-│ 2. REACT COMPONENT (get-patient.tsx)                     │
+│ 2. REACT COMPONENT (get-patients.tsx)                     │
 │    handleSearch() called                                 │
 │    - setLoading(true)                                    │
 │    - invoke("search_patient", { query: "Mario" })        │

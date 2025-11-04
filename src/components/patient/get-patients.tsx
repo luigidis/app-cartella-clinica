@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import "./get-patient.css";
+import "./get-patients.css";
 
 interface Patient {
   id: number;
@@ -13,7 +13,7 @@ interface Patient {
   createdAt: string;
 }
 
-export default function GetPatient() {
+export default function GetPatients() {
   const [searchQuery, setSearchQuery] = useState("");
   const [patients, setPatients] = useState<Patient[]>([]);
   const [loading, setLoading] = useState(false);

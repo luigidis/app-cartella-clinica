@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AggiungiPaziente from "./components/patient/create-patient";
-import GetPatient from "./components/patient/get-patient";
+import GetPatients from "./components/patient/get-patients";
 import "./App.css";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <div className="home-container">
           {/* Search Section */}
           <section className="search-section">
-            <GetPatient/>
+            <GetPatients/>
           </section>
 
           {/* Quick Actions */}
