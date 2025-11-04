@@ -1,57 +1,62 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
-import AggiungiPaziente from "./pazienti";
-
+import AggiungiPaziente from "./components/patient/create-patient";
+import GetPatient from "./components/patient/get-patient";
 import "./App.css";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
+  const [showAddPatient, setShowAddPatient] = useState(false);
 
   return (
-    <main className="container">
-      <h1>Welcome to Cartella Clinica CriDp</h1>
+    <div className="app">
+      {/* Header */}
+      <header className="app-header">
+        <div className="header-content">
+          <h1 className="app-title">Cartella Clinica</h1>
+          <p className="app-subtitle">CriDp Medical Records</p>
+        </div>
+      </header>
 
-      {/* <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
+      {/* Main Content */}
+      <main className="main-content">
+        <div className="home-container">
+          {/* Search Section */}
+          <section className="search-section">
+            <GetPatient/>
+          </section>
 
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
+          {/* Quick Actions */}
+          <section className="actions-section">
+            <button
+              className="action-button primary"
+              onClick={() => setShowAddPatient(true)}
+            >
+              <span className="button-icon">+</span>
+              Nuovo Paziente
+            </button>
+          </section>          
+        </div>
+      </main>
 
-      <p>TEST</p>
-      <h1>Gestione delle cartelle</h1> */}
-      <AggiungiPaziente />
-
-    </main>
+      {/* Modal for Adding Patient (placeholder) */}
+      {showAddPatient && (
+        <div className="modal-overlay" onClick={() => setShowAddPatient(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Aggiungi Nuovo Paziente</h2>
+              <button
+                className="close-button"
+                onClick={() => setShowAddPatient(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <AggiungiPaziente/>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

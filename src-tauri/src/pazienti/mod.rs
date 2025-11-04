@@ -13,11 +13,16 @@ pub struct PazienteInput {
 }
 
 #[tauri::command]
-pub fn crea_paziente(data: PazienteInput) -> Result<String, String> {
-    db::crea_paziente(data)
+pub fn create_patient(data: PazienteInput) -> Result<String, String> {
+    db::create_patient(data)
 }
 
 #[tauri::command]
 pub fn get_pazienti() -> Result<Vec<serde_json::Value>, String> {
     db::get_pazienti()
+}
+
+#[tauri::command]
+pub fn search_patient(query: String) -> Result<Vec<serde_json::Value>, String> {
+    db::search_patient(query)
 }

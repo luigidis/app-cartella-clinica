@@ -76,7 +76,7 @@ The application uses an unusual but functional hybrid architecture:
 - `src-tauri/src/main.rs` - Minimal main function that calls lib::run()
 
 **Node.js Scripts:**
-- `src-tauri/api/creaPaziente.js` - Creates new patient records
+- `src-tauri/api/createPatient.js` - Creates new patient records
 - `src-tauri/api/pazienti.js` - Patient retrieval operations
 
 **Database:**
@@ -87,7 +87,7 @@ The application uses an unusual but functional hybrid architecture:
 
 Example: Creating a patient
 1. User submits form in `src/pazienti.tsx`
-2. Frontend calls `core.invoke("crea_paziente", { data: form })`
+2. Frontend calls `core.invoke("create_patient", { data: form })`
 3. Rust command in `src-tauri/src/pazienti/mod.rs` receives the call
 4. Rust executes: `node ./src-tauri/api/createPaziente.js <json_data>`
 5. Node.js script uses Prisma to insert into database

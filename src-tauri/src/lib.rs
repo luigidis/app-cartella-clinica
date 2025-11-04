@@ -12,8 +12,9 @@ pub fn run() {
         .plugin(tauri_plugin_opener::init())
         .invoke_handler(tauri::generate_handler![
             greet,
-            pazienti::crea_paziente,
-            pazienti::get_pazienti
+            pazienti::create_patient,
+            pazienti::get_pazienti,
+            pazienti::search_patient
             ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
